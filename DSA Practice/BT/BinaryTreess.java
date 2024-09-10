@@ -43,6 +43,34 @@ public class BinaryTreess {
 
         }
     }
+//Preorder function
+    public static void preorder(Node root){
+        if(root == null){
+            return;
+        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+    //Inorder function
+    public static void inorder(Node root){
+        if(root == null){
+            return;
+        }
+        inorder( root.left);
+        System.out.print(root.data+" ");
+        inorder(root.right);
+    }
+
+    //PostOrder
+    public static void postorder(Node root){
+        if(root == null){
+            return;
+        }
+        inorder( root.left);
+        inorder(root.right);
+        System.out.print(root.data+" ");
+    }
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -50,6 +78,16 @@ public class BinaryTreess {
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
         System.out.println(root.data);
+
+        System.out.println("Preorder : ");
+        preorder(root);
+
+        System.out.println("\nInorder : ");
+        inorder(root);
+
+        System.out.println("\nPostorder : ");
+        postorder(root);
     }
+    
 
 }
